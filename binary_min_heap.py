@@ -1,5 +1,6 @@
 import datetime
 
+wait_list_limit = 20
 
 class Reservation:
     def __init__(self, patron_id, priority_number, time_of_reservation):
@@ -11,6 +12,13 @@ class Reservation:
 class ReservationHeap:
     def __init__(self):
         self.nodes = []
+
+    def fetch_min(self):
+        if len(self.nodes):
+            return self.nodes[0]
+        else:
+            return None
+
 
     def fetch_parent(self, child_index):
         # To fetch the parent index for a given child index
@@ -24,19 +32,27 @@ class ReservationHeap:
         # To fetch the children indexes for a given parent index
         left_child = 2 * parent_index + 1
         right_child = 2 * parent_index + 2
-        # if left_child > len(self.nodes) - 1:
-        #     return None, None
-        # elif left_child == len(self.nodes) - 1:
-        #     return left_child, None
-        #     parent = child_index / 2
         return left_child, right_child
 
     def swap_nodes(self, index_one, index_two):
         # To swap two nodes in the ReservationHeap
-        temp = self.nodes[index_one]
-        self.nodes[index_one] = self.nodes[index_two]
-        self.nodes[index_two] = temp
+        # temp = self.nodes[index_one]
+        print("A {} {} {}".format(self.nodes[index_one].patron_id,self.nodes[index_one].priority_number, self.nodes[index_one].time_of_reservation ))
+        print("B {} {} {}".format(self.nodes[index_two].patron_id, self.nodes[index_two].priority_number,
+                                  self.nodes[index_two].time_of_reservation))
 
+        # self.nodes[index_one].patron_id = self.nodes[index_two].patron_id
+        # self.nodes[index_one].priority_number = self.nodes[index_two].priority_number
+        # self.nodes[index_one].time_of_reservation = self.nodes[index_two].time_of_reservation
+        # self.nodes[index_two].patron_id = temp.patron_id
+        # self.nodes[index_two].priority_number = temp.priority_number
+        # self.nodes[index_two].time_of_reservation = temp.time_of_reservation
+        # print("TemPvalues {} {} {}".format(temp.patron_id,temp.priority_number, temp.time_of_reservation ))
+        self.nodes[index_one], self.nodes[index_two] = self.nodes[index_two], self.nodes[index_one]
+        print("A {} {} {}".format(self.nodes[index_one].patron_id, self.nodes[index_one].priority_number,
+                                  self.nodes[index_one].time_of_reservation))
+        print("B {} {} {}".format(self.nodes[index_two].patron_id, self.nodes[index_two].priority_number,
+                                  self.nodes[index_two].time_of_reservation))
     def fetch_priority_child(self, left_child, right_child):
         if self.nodes[left_child].priority_number == self.nodes[right_child].priority_number:
             if self.nodes[left_child].time_of_reservation <= self.nodes[right_child].time_of_reservation:
@@ -45,6 +61,14 @@ class ReservationHeap:
         elif self.nodes[left_child].priority_number < self.nodes[right_child].priority_number:
             return left_child
         return right_child
+
+    def fetch_all_reservations(self, parent, all_reservations):
+        n = len(self.nodes)
+        if parent < n:
+            left_child, right_child = self.fetch_children(parent)
+            self.fetch_all_reservations(left_child, all_reservations)
+            all_reservations.append(self.nodes[parent].patron_id)
+            self.fetch_all_reservations(right_child, all_reservations)
 
     def insert_reservation(self, reservation):
         new_index = len(self.nodes)
@@ -72,7 +96,9 @@ class ReservationHeap:
         parent = 0
         remove_index = len(self.nodes) - 1
         self.swap_nodes(parent, remove_index)
+        print("Parent - {} Last Index - {}".format(self.nodes[parent].patron_id, self.nodes[remove_index].patron_id))
         removed_reservation = self.nodes.pop(remove_index)
+        print("Removed Reservation - {}".format(removed_reservation.patron_id))
         left_child, right_child = self.fetch_children(parent)
         cnt = 0
         while left_child < len(self.nodes) and right_child < len(self.nodes):
@@ -110,16 +136,16 @@ def print_heap(heap_list):
 
 if __name__ == '__main__':
     res_heap = ReservationHeap()
-    reservation1 = Reservation("C", 3, datetime.datetime.now())
-    reservation2 = Reservation("B", 2, datetime.datetime.now())
-    reservation3 = Reservation("A", 1, datetime.datetime.now())
-    reservation4 = Reservation("D", 4, datetime.datetime.now())
-    reservation5 = Reservation("E", 1, datetime.datetime.now())
+    reservation1 = Reservation(102, 2, datetime.datetime.now())
+    reservation2 = Reservation(104, 1, datetime.datetime.now())
+    # reservation3 = Reservation("A", 1, datetime.datetime.now())
+    # reservation4 = Reservation("D", 4, datetime.datetime.now())
+    # reservation5 = Reservation("E", 1, datetime.datetime.now())
     res_heap.insert_reservation(reservation1)
     res_heap.insert_reservation(reservation2)
-    res_heap.insert_reservation(reservation3)
-    res_heap.insert_reservation(reservation4)
-    res_heap.insert_reservation(reservation5)
+    # res_heap.insert_reservation(reservation3)
+    # res_heap.insert_reservation(reservation4)
+    # res_heap.insert_reservation(reservation5)
     x = res_heap.remove_reservation()
     # print([str(x.__dict__)+"\n" for x in res_heap.nodes])
     # for x in res_heap.nodes:
