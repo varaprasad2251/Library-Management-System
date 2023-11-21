@@ -1,0 +1,8 @@
+InsertBook(101, "BT1", "A", "Yes")
+InsertBook(48, "BT2", "B", "Yes")
+InsertBook(132, "BT1", "A", "Yes")
+InsertBook(25, "BT1", "A", "Yes")
+InsertBook(73, "BT1", "A", "Yes")
+InsertBook(12, "BT1", "A", "Yes")
+InsertBook(6, "BT1", "A", "Yes")
+ColorFlipCount()

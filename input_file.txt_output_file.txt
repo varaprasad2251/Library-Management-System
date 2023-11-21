@@ -1,31 +1,39 @@
-BookID = 1
-Title = "Book1"
-Author = "Author1"
+BookID = 12
+Title = "book 12"
+Author = "author 12"
 Availability = "Yes"
 BorrowedBy = None
 Reservations = []
 
-Book 1 Borrowed by Patron 101
+Book 12 Borrowed by Patron 20
 
-Book 1 Reserved by Patron 102
-
-Book 1 Reserved by Patron 104
-
-BookID = 1
-Title = "Book1"
-Author = "Author1"
+BookID = 12
+Title = "book 12"
+Author = "author 12"
 Availability = "No"
-BorrowedBy = 101
-Reservations = [102, 104]
+BorrowedBy = 20
+Reservations = []
 
-Book 1 Returned by Patron 101
+Book 12 Reserved by Patron 23
 
-Book 1 Allotted to Patron 104
+Book 12 Reserved by Patron 25
 
-BookID = 1
-Title = "Book1"
-Author = "Author1"
-Availability = "No"
-BorrowedBy = 104
-Reservations = [102]
+Book 12 Reserved by Patron 27
 
+Book 12 Reserved by Patron 28
+
+Book 37 is no longer available
+
+Book 35 is no longer available
+
+Book 10 is no longer available
+
+Book 8 is no longer available
+
+Book 0 is no longer available
+
+Book 4 is no longer available
+
+Book 11 is no longer available
+
+Program Terminated!!

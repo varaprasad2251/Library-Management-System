@@ -1,76 +1,43 @@
-Book 2 Borrowed by Patron 2001
-
-Book 2 Reserved by Patron 3002
-
-BookID = 2
-Title = "Book2"
-Author = "Author1"
-Availability = "No"
-BorrowedBy = 2001
-Reservations = [3002]
-
-Book 5 Borrowed by Patron 3002
-
-Book 2 Reserved by Patron 1003
-
-BookID = 4
-Title = "Book4"
-Author = "Author1"
+BookID = 48
+Title = "Data Structures and Algorithms"
+Author = "Sartaj Sahni"
 Availability = "Yes"
 BorrowedBy = None
 Reservations = []
 
-Book 4 Borrowed by Patron 2010
+Book 48 Borrowed by Patron 120
 
-BookID = 2
-Title = "Book2"
-Author = "Author1"
-Availability = "No"
-BorrowedBy = 2001
-Reservations = [1003, 3002]
+Book 101 Borrowed by Patron 132
 
-BookID = 4
-Title = "Book4"
-Author = "Author1"
-Availability = "No"
-BorrowedBy = 2010
-Reservations = []
+Book 48 Reserved by Patron 144
 
-BookID = 5
-Title = "Book5"
-Author = "Author3"
-Availability = "No"
-BorrowedBy = 3002
-Reservations = []
+Book 48 Reserved by Patron 140
 
-Book 2 Reserved by Patron 2010
+Book 48 Reserved by Patron 142
 
-Book 2 Reserved by Patron 1004
+Book 12 Borrowed by Patron 138
 
-Book 2 Returned by Patron 2001
+Book 12 Reserved by Patron 150
 
-Book 2 Allotted to Patron 3002
+Book 12 Reserved by Patron 162
 
-Book 4 Returned by Patron 2010
+Book 48 Returned by Patron 120
 
-BookID = 2
-Title = "Book2"
-Author = "Author1"
-Availability = "No"
-BorrowedBy = 3002
-Reservations = [1003, 2010, 1004]
+Book 48 Allotted to Patron 142
 
-BookID = 4
-Title = "Book4"
-Author = "Author1"
+BookID = 6
+Title = "Database Management Systems"
+Author = "Raghu Ramakrishnan"
 Availability = "Yes"
 BorrowedBy = None
 Reservations = []
 
-BookID = 3
-Title = "Book3"
-Author = "Author4"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID = 12
+Title = "Artificial Intelligence: A Modern Approach"
+Author = "Stuart Russell"
+Availability = "No"
+BorrowedBy = 138
+Reservations = [162, 150]
+
+Book 12 is no longer available. Reservations made by Patrons 162, 150 have been cancelled!
 
