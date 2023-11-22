@@ -124,7 +124,7 @@ Reservations = []
 
 Book 210 Reserved by Patron 34
 
-Colour Flip Count: 20
+Colour Flip Count: 19
 
 Book 125 is no longer available
 
@@ -132,12 +132,12 @@ Book 115 is no longer available
 
 Book 210 is no longer available. Reservation made by Patron 34 has been cancelled!
 
-Colour Flip Count: 21
+Colour Flip Count: 23
 
 Book 25 is no longer available. Reservation made by Patron 171 has been cancelled!
 
 Book 80 is no longer available
 
-Colour Flip Count: 21
+Colour Flip Count: 28
 
 Program Terminated!!

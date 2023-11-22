@@ -26,8 +26,7 @@ def write_output_to_file(file_path, output):
 
 if __name__ == "__main__":
     input_filename = sys.argv[1]   # Read input_file name from command-line argument
-    output_filename = input_filename + "_" + "output_file.txt"
-
+    output_filename = input_filename.rstrip('.txt') + "_" + "output_file.txt"
     # Read operations from the input file and execute each operation in input file.
     if is_file_exist(input_filename):
         functions = read_functions_from_file(input_filename)
@@ -37,13 +36,19 @@ if __name__ == "__main__":
             # class instance name appended to all operations before executing.
             # ';' is not expected at end of operation being called since python does not expect a ';' after method call.
             # using rstrip() to trim trailing ; if any. (Did not work properly in some cases)
-            results.append(eval("rbtree." + x.rstrip(";")))
+            result = eval("rbtree." + x.rstrip(";"))
+            if result is not None:
+                results.append(str(result))
             if "Quit()" in x:
                 break
 
     # Write results to the output file
-        output_stream = ""
-        for result in results:
-            if result is not None:
-                output_stream += (result + "\n")
+    #     output_stream = ""
+    #     for result in results:
+    #         if result is not None:
+    #             output_stream += (result + "\n")
+        output_stream = "\n".join(results)
         write_output_to_file(output_filename, output_stream)
+    else:
+        raise FileNotFoundError
+

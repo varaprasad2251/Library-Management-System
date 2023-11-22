@@ -1,7 +1,7 @@
-InsertBook(5, "The Secret Garden", "Jane Smith", "Yes");
+InsertBook(5, "The Secret Garden", "Jane Smith", "Yes")
 BorrowBook(101, 5, 2)
-InsertBook(3, "The Great Gatsby", "Mark Johnson", "Yes");
-InsertBook(12, "To Kill a Mockingbird", "Sarah Lee", "Yes");
+InsertBook(3, "The Great Gatsby", "Mark Johnson", "Yes")
+InsertBook(12, "To Kill a Mockingbird", "Sarah Lee", "Yes")
 BorrowBook(101, 3, 2)
 DeleteBook(12)
 PrintBooks(1,10)
